@@ -16,7 +16,7 @@ class TestVideoChecker extends PHPUnit_Framework_TestCase
         ]);
     }
 
-    public function testYoutubeKoProvider()
+    public function testYoutubeKoCountryProvider()
     {
         $this->providerCountry(new \Mascame\VideoChecker\YoutubeProvider(), [
             'GOHXRe9o_Ls',
@@ -24,6 +24,18 @@ class TestVideoChecker extends PHPUnit_Framework_TestCase
             'jekBUo2uN8M',
             'Sts3GeZszAI'
         ], false, 'ES');
+    }
+
+    public function testYoutubeOkCountryProvider()
+    {
+        $this->providerCountry(new \Mascame\VideoChecker\YoutubeProvider(), [
+            '7soiSHulFiQ',
+        ], true, 'ES');
+
+        $this->providerCountry(new \Mascame\VideoChecker\YoutubeProvider(), [
+            'jekBUo2uN8M',
+            'Sts3GeZszAI',
+        ], true, 'US');
     }
 
     public function testVimeoProvider()
